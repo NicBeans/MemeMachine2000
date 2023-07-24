@@ -1,0 +1,25 @@
+{
+  "name": "mememachine",
+  "version": "1.0.0",
+  "description": "memes by the boys, for the boys",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "commands": "node deploy-commands.js"
+  },
+  "author": "Nicbeans, Francoisrob",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/voice": "^0.16.0",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.1.0",
+    "ffprobe": "^1.1.2",
+    "libsodium-wrappers": "^0.7.11",
+    "node-cron": "^3.0.2",
+    "play-dl": "^1.9.6",
+    "underscore": "^1.13.6",
+    "youtube-dl-exec": "^2.4.6"
+  }
+}
