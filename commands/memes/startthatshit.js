@@ -10,8 +10,9 @@ const cron = require("node-cron");
 const fs = require("fs");
 
 
-shitstarted = false;
-memeTime = Math.floor(Math.random() * 55) + 3;
+let shitstarted = false;
+let task;
+
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -36,7 +37,7 @@ module.exports = {
         return;
       }
 
-      const task = cron.schedule(
+      task = cron.schedule(
         `0 ${Math.floor(Math.random() * 55) + 3} * * * *`,
         async () => {
           const connection = joinVoiceChannel({

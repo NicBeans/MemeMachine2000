@@ -1,22 +1,23 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { exec } = require("child_process");
+
+let shitstarted = false;
+let task;
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("stop")
-    .setDescription("stop the bot"),
+    .setDescription("stops the vibes"),
 
   async execute(interaction) {
     try {
-      exec(`kill -2 $(pgrep -f startthatshit.js)`, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-      });
-      await interaction.reply("Bot stopped.");
+      if (!shitstarted) {
+        await interaction.reply("no more caps, ngl not fire.");
+        return;
+      }
+
+      task.stop();
+      shitstarted = false;
+      await interaction.reply("caps no more.");
     } catch (error) {
       console.log("[ERROR]", error);
     }
